@@ -46,7 +46,7 @@ int main(int argc, char **argv){
 			  printf("\nSending to client: %s",input);
 			  send(clientsocket,input,strlen(input)+1,0);
 
-			  if(strcmp(input, "quit")==0){
+			  if(strcmp(input, "Quit\n")==0){
                 close(i);
                 FD_CLR(i,&sockets);
                 return 0;
@@ -57,7 +57,7 @@ int main(int argc, char **argv){
 				recv(i,line,5000,0);
 				printf("Got from client: %s\n",line);
 				printf("size: %d",strlen(line));
-				if(strcmp(line, "quit\0")==0){
+				if(strcmp(line, "Quit\n")==0){
                   close(i);
                   FD_CLR(i,&sockets);
                   return 0;

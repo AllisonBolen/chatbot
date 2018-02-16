@@ -55,7 +55,7 @@ while(1){
   			  fgets(input,5000,stdin);
   			  printf("\nSending to server: %s",input);
   			  send(sockfd,input,strlen(input)+1,0);
-  			  if(strcmp(input, "quit")==0){
+  			  if(strcmp(input, "Quit\n")==0){
   			    close(i);
   			    FD_CLR(i,&sockets);
   			    return 0;
@@ -66,7 +66,7 @@ while(1){
   		      recv(i,line,5000,0);
   			  printf("Got from server: %s\n",line);
   			  printf("size: %d",strlen(line));
-  			  if(strcmp(line, "quit")==0){
+  			  if(strcmp(line, "Quit\n")==0){
                  close(i);
                  FD_CLR(i,&sockets);
                  return 0;
